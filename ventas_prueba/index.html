@@ -1,0 +1,85 @@
+<!-- inventario.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Inventario</title>
+    <link rel="stylesheet" href="../styles.css">
+    <script src="../librerias_js/jquery-3.7.0.min.js"></script>
+    <script src="mostrar.js"></script>
+    <script src="buscar.js"></script>
+</head>
+<body>
+    <header>
+        <h1>Inventario</h1>
+    </header>
+    <nav>
+        <!-- Aquí puedes agregar enlaces a otras secciones o páginas -->
+        <ul>
+            <li><a href="../index.html">Inicio</a></li>
+            <li><a href="../Ventas/ventas.html">Ventas</a></li>
+            <li><a href="#">Inventario</a></li>
+            <li><a href="#">Clientes</a></li>
+            <li><a href="../Reportes/reportes.html">Reportes</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section>
+            <h3>Buscar Producto</h3>
+            <input type="text" id="busqueda" placeholder="Buscar por nombre o código">
+            <h2>Productos Registrados</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Producto</th>
+                        <th>Código</th>
+                        <th>Precio</th>
+                        <th>Stock</th>
+                        <th>Imagen</th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody id="tabla-ventas">
+                    <!-- Los datos de la tabla se generarán dinámicamente con JavaScript -->
+                </tbody>
+            </table> 
+            <h1 id="mensaje-no-resultados" style="display: none;">No se encontraron resultados</h1> 
+        </section>  
+        <section>
+            <div id="cart">
+                <h3>Carrito de Compras</h3>
+                <table id="cart-items">
+                  <thead>
+                    <tr>
+                      <th>Producto</th>
+                      <th>Precio</th>
+                      <th>Cantidad</th>
+                      <th>Subtotal</th>
+                      <th></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <!-- Los productos del carrito se agregarán aquí dinámicamente -->
+                  </tbody>
+                  <tfoot>
+                    <tr>
+                      <td colspan="3">Total:</td>
+                      <td id="cart-total" colspan="2">S/ 0.00</td>
+                    </tr>
+                  </tfoot>
+                  
+                </table>
+                <div id="cart-total"></div>
+                <button id="vaciar-carrito">Vaciar Carrito</button>
+              </div>
+            
+        </section>  
+    </main>
+    <footer>
+        <p>Derechos de Autor &copy; 2023 - Librería Evelyn</p>
+    </footer>
+</body>
+</html>
+

@@ -1,0 +1,697 @@
+
+/* Estilos para el tema claro */
+body.tema-claro {
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+    color: #1a1e24;
+    margin: 0;
+    padding: 0;
+}
+/* Estilos para el tema oscuro */
+body.tema-oscuro {
+    font-family: Arial, sans-serif;
+    background-color: #00031b;
+    color: #000000;
+    margin: 0;
+    padding: 0;
+}
+body.nofound {
+    font-family: Arial, sans-serif;
+    background-color: #ddff00;
+    color: #ff6f00;
+    margin: 0;
+    padding: 0;
+}
+
+
+h1.claro {
+    text-align: center;
+    background-color: #333;
+    color: white;
+    padding: 20px;
+    margin: 0;
+    position: fixed;
+    z-index: 1;
+    width: 100%;
+}
+
+h1.oscuro {
+    text-align: center;
+    background-color: #00ffc3;
+    color: rgb(0, 0, 0);
+    padding: 20px;
+    margin: 0;
+    position: fixed;
+    z-index: 1;
+    width: 100%;
+}
+
+
+.catalogo {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    padding: 20px;
+    margin-top: 3%;
+}
+
+.tema-claro .producto {
+    background-color: rgb(255, 255, 255);
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 0px 20px;
+    margin: 0;
+    text-align: center;
+    width: 200px;
+    position: relative;
+    justify-content: center;
+    align-items: center; /* Centra horizontalmente el contenido en el modal */
+}
+
+/* Estilos para el modo oscuro para .producto */
+.tema-oscuro .producto {
+    background-color: #101a62cc;
+    border: 1px solid #00ffd0;
+    border-radius: 5px;
+    padding: 0px 20px;
+    margin: 0;
+    text-align: center;
+    width: 200px;
+    position: relative;
+    justify-content: center;
+    align-items: center; /* Centra horizontalmente el contenido en el modal */ 
+}
+
+
+.producto img{
+    height: 200px;
+    max-width:200px;
+    /* height: 200px;
+    width: auto; */
+    transition: transform 0.3s;
+    text-align: center;
+}
+
+.producto:hover img {
+    transform: scale(1.1);
+}
+
+.tema-claro .producto h3 {
+    font-size: 18px;
+    top: 0; /* Coloca el nombre del producto en la parte superior del contenedor */
+    background-color: rgba(13, 142, 175, 0.7); /* Agrega un fondo semitransparente para hacer que el texto sea legible */
+    color: #fff; /* Cambia el color del texto para que sea visible */
+    padding: 8px; /* Añade un espacio alrededor del texto para que se vea mejor */
+    z-index: 1; /* Asegura que el nombre del producto esté por encima de la imagen */
+    text-align: center;
+}
+.tema-oscuro .producto h3 {
+    font-size: 18px;
+    top: 0; /* Coloca el nombre del producto en la parte superior del contenedor */
+    background-color: rgba(207, 245, 255, 0.7); /* Agrega un fondo semitransparente para hacer que el texto sea legible */
+    color: #000000; /* Cambia el color del texto para que sea visible */
+    padding: 8px; /* Añade un espacio alrededor del texto para que se vea mejor */
+    z-index: 1; /* Asegura que el nombre del producto esté por encima de la imagen */
+    text-align: center;
+}
+
+
+.tema-claro .precio {
+    font-size: 22px;
+    color: #ff0000;
+}
+
+.tema-oscuro .precio {
+    font-size: 22px;
+    color: #e8e8e8;
+}
+
+
+.tema-claro .cantidad {
+    font-size: 17px;
+    color: #6300af;
+}
+.tema-oscuro .cantidad {
+    font-size: 17px;
+    color: #00ffaa;
+}
+
+/* Botones */
+
+.eliminar {
+    background-color: #c22a13d6;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    padding: 5%;
+    /* margin-top: 10px; */
+    cursor: pointer;
+    font-size: 25px;
+}
+
+.eliminar:hover {
+    background-color: #c22a13;
+}
+
+.editar {
+    background-color: #f3b734;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    padding: 5%;
+    /* margin-top: 10px;
+    margin-left: 20px; */
+    cursor: pointer;
+    font-size: 25px;
+    margin: 15px;
+}
+
+.editar:hover {
+    background-color: #988706;
+}
+
+.vender {
+    background-color: #0f890a;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    padding: 5%;
+    /* margin-top: 10px;
+    margin-left: 20px; */
+    cursor: pointer;
+    font-size: 25px;
+    margin: 15px;
+}
+.vender:hover {
+    background-color: #25b817;
+}
+
+/* Estilos para la ventana modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 111;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 2% auto;
+    padding: 15px;
+    border: 2px solid #00ff7b;
+    width: 270px;
+    border-radius: 5px;
+}
+.cargar-contenido {
+    background-color: #fefefe;
+    margin: 2% auto;
+    padding: 10px;
+    border: 2px solid #00ff7b;
+    width: 300px;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column; /* Asegura que el contenido se alinee verticalmente */
+    justify-content: center; /* Centra verticalmente el contenido en el modal */
+    align-items: center; /* Centra horizontalmente el contenido en el modal */
+    text-align: center; /* Alinea el texto del botón en el centro */
+}
+
+/* Estilos para los botones laterales */
+#Agregar {
+    font-size: 30px;
+    margin-top: 2px;
+    size: 200px;
+    color: #3498db;
+    /* border: none; */
+    cursor: pointer;
+    position: fixed;
+    bottom : 80px; /* Ajusta la posición vertical según tu preferencia */
+    right: 20px; /* Ajusta la posición horizontal según tu preferencia */
+    z-index: 1; /* Asegura que el botón esté por encima de otros elementos */
+    border-color: transparent;
+    background-color: transparent;
+}
+#Cargar {
+    font-size: 30px;
+    margin-top: 2px;
+    size: 200px;
+    color: rgb(0, 234, 35);
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    position: fixed;
+    bottom: 150px; /* Ajusta la posición vertical según tu preferencia */
+    right: 20px; /* Ajusta la posición horizontal según tu preferencia */
+    z-index: 1; /* Asegura que el botón esté por encima de otros elementos */
+}
+/* Estilos para el botón de cerrar y el formulario */
+#cerrarModal,#cerrar-modal-edicion,#cerrar-carga,#cerrar-vender,
+#formulario input[type="submit"] {
+    /* background-color: #f44336; */
+    font-size: 40px;
+    color: rgb(8, 8, 8);
+    border: none;
+    padding: 5%;
+    /* margin-top: 2px; */
+    cursor: pointer;
+    margin-left: 90%;
+    border-radius: 100%;
+}
+
+label, input {
+    margin-bottom: 15px; /* Ajusta el valor según el espacio que desees */
+}
+button.fa-check{
+    color: #ffa200;
+    background-color: #004947;
+    font-size: 25px;
+    margin-left: 85%;
+    border-radius: 50%;
+    padding: 3%;
+    border: none;
+
+}
+button.fa-check:hover{
+    color: #6fff00;
+}
+.Guardar-Cambios{
+    /* margin: 4%;
+    margin-top: 2%;
+    margin-left: 35%; */
+    color: #1900ff;
+    background-color: #37ff00b9;
+    padding: 4%;
+    font-size: 20px;
+    /* margin-left: 85%; */
+    border-radius: 50%;
+    border: none;
+    margin-left: 50%;
+}
+.Guardar-Cambios:hover{
+    background-color: #d9ff00; 
+}
+.Titulo{
+    color: #3498db;
+    text-align: center;
+    margin-top: 0px;
+}
+/* Estilos para el contenedor de los campos de edición y la imagen-preview */
+.formulario-contenedor {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start; /* Alinea los elementos en la parte superior */
+}
+
+/* Estilos para la parte izquierda del formulario (campos de edición) */
+.formulario-izquierda {
+    width: 60%; /* Ajusta el ancho según tus preferencias */
+    padding-right: 10px; /* Espacio entre campos y la imagen */
+}
+
+/* Estilos para la parte derecha del formulario (imagen-preview) */
+.formulario-derecha {
+    width: 40%; /* Ajusta el ancho según tus preferencias */
+}
+
+/* Estilos para la imagen-preview */
+#imagen-preview {
+    width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+.buscador {
+    text-align: center;
+    margin-bottom: 20px;
+    z-index: 11;
+}
+
+#input-busqueda {
+    top: 20px;
+    left: 140px;
+    padding: 10px;
+    font-size: 15px;
+    width: 200px;
+    border-radius: 10px;
+    border: none;
+    text-align: center;
+    position: fixed;
+    z-index: 1;
+}
+.Cargar {
+font-size: 27px;
+color: #ffe7ef;
+text-align: center;
+justify-content: center;
+background-color: #1b33d2;
+border-radius: 50%;
+border: none;
+width: 47px;
+height: 47px;
+}
+.Cargar :hover {
+    color: #89f900;
+    }
+.Carro {
+    width: 50px; /* Elige el ancho deseado */
+    height: 50px; /* Elige el alto deseado (debe ser igual al ancho) */
+    border-radius: 50%; /* Establece el radio del borde para hacerlo circular */
+    border: none;
+    font-size: 25px;
+    margin-top: 1px;
+    color: rgb(255, 255, 255);
+    background-color: #f90000;
+    cursor: pointer;
+    position: fixed;
+    top: 10px; /* Ajusta la posición vertical según tu preferencia */
+    right: 60px; /* Ajusta la posición horizontal según tu preferencia */
+    z-index: 1; /* Asegura que el botón esté por encima de otros elementos */
+    }
+.Contador {
+    text-align: center;
+    justify-content: center;
+    width: 25px; /* Elige el ancho deseado */
+    height: 25px; /* Elige el alto deseado (debe ser igual al ancho) */
+    border-radius: 50%; /* Establece el radio del borde para hacerlo circular */
+    border: solid color(green);
+    font-size: 20px;
+    margin-top: 1px;
+    color: rgb(0, 10, 143);
+    background-color: #ff7300;
+    position: fixed;
+    top: 42px; /* Ajusta la posición vertical según tu preferencia */
+    right: 95px; /* Ajusta la posición horizontal según tu preferencia */
+    z-index: 1; /* Asegura que el botón esté por encima de otros elementos */
+    }
+.archivo {
+color: #0047cb;
+font-size: 14px;
+}
+#mensaje-no-resultados {
+    margin-top: 80px;
+    display: none;
+    font-size: 30px;
+    color: #c22a13;
+}
+.limpiar{
+    font-size: 28px;
+    color: rgb(255, 13, 0);
+    text-align: center;
+    cursor: pointer;
+
+}
+.cambio-tema{
+    font-size: 30px;
+    margin-top: 1px;
+    color: rgb(255, 238, 0);
+    background-color: #0047cb;
+    border-radius: 5px;
+    cursor: pointer;
+    position: fixed;
+    top: 120px; /* Ajusta la posición vertical según tu preferencia */
+    left: 10px; /* Ajusta la posición horizontal según tu preferencia */
+    z-index: 1; /* Asegura que el botón esté por encima de otros elementos */
+
+}
+.foco{
+    font-size: 20px;
+    margin-top: 1px;
+    color: rgb(255, 255, 255);
+    background-color: #000000;
+    border-radius: 5px;
+    cursor: pointer;
+    position: fixed;
+    top: 10px; /* Ajusta la posición vertical según tu preferencia */
+    left: 2px; /* Ajusta la posición horizontal según tu preferencia */
+    z-index: 1; /* Asegura que el botón esté por encima de otros elementos */
+
+}
+
+
+/* Carrito de compra */
+
+.modal1 {
+    display: none;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.7); /* Fondo oscuro para bloquear el contenido detrás */
+    z-index: 1000; /* Asegura que el modal esté por encima de todo */
+    overflow-y: auto; /* Habilitar desbordamiento vertical cuando sea necesario */
+  }
+  
+.modal-content1 {
+    text-align: center;
+    justify-content: center;
+    width: 30%;
+    margin-left: auto; /* Mueve el contenido al lado derecho */
+    margin-right: 20px;
+    margin-top: 80px;
+    padding: 10px;
+    background-color: rgb(255, 255, 255);
+    align-items: flex-start;
+    gap: 5px; /* Espaciado entre elementos */
+  }
+
+  #lista-productos {
+    display: flex;
+    flex-direction: column; /* Mostrar los productos en columnas */
+    gap: 10px; /* Espaciado entre productos */
+    justify-content: center;
+  }
+  
+  .product {
+    display: flex;
+    flex-direction: row; /* Mostrar los elementos en filas dentro de cada producto */
+    background-color: #fff;
+    border: 1px solid #ddd;
+    padding: 20px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    justify-content: center;
+    
+  }
+  
+  .product img {
+    height: 60px;
+    margin-bottom: 5px;
+    text-align: center;
+    justify-content: center;
+  }
+  
+  .product span {
+    flex: 1; /* Hacer que los elementos ocupen el espacio disponible */
+    justify-content: center;
+    text-align: center;
+  }
+  
+  .product button.remove {
+    background-color: #ff0000;
+    color: #fff;
+    font-size: 15px;
+    border: none;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    cursor: pointer;
+    justify-content: center;
+    text-align: center;
+  }
+  
+  .product button.remove:hover {
+    background-color: #cc0000;
+  }
+  h3{
+    text-align: center;
+    justify-content: center;
+    font-size: 30px;
+    color: #1900ff;
+    /* margin-top: 3px; */
+  }
+  #cuenta{
+    text-align: center;
+    font-size: 20px;
+
+  }
+
+  .product-image {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background-color: #ccc;
+    transition: transform 0.5s ease; /* Añade una transición suave */
+  }
+  .cloned-product-image{
+    width: 40px;
+    /* z-index: 11; */
+    transition: all 1s ease; /* Agregar una transición suave */
+  }
+  .eliminartodo{
+    color: #ff0000;
+    width: 40px;
+    height: 40px;
+    font-size: 30px;
+    border-radius: 50%;
+    border: none;
+    background-color: #d5c8c800;
+    cursor: pointer;
+
+  }
+
+
+/* Estilos para pantallas más pequeñas, muestra solo el ícono */
+
+  @media (max-width: 768px) {
+    .buscador #campo-busqueda {
+        display: none;
+    }
+    .buscador #icono-busqueda {
+        display: block;
+        text-align: center;
+    }
+    h1.claro {
+        text-align: center;
+        font-size: 15px;
+        padding: 40px;
+        margin: 0;
+        position: fixed;
+        z-index: 1;
+        width: 100%;
+    }
+    h1.oscuro {
+        text-align: center;
+        font-size: 15px;
+        padding: 40px;
+        margin: 0;
+        position: fixed;
+        z-index: 1;
+        width: 100%;
+    }
+    .buscador {
+        text-align: center;
+        margin-bottom: 70px;
+    }
+    
+    #input-busqueda {
+        top: 12%;
+        left: 50%;
+        transform: translate(-50%, -50%);;
+        padding: 8px;
+        font-size: 12px;
+        width: 170px;
+        border-radius: 10px;
+        border-color: #360051;
+        text-align: center;
+        position: fixed;
+        z-index: 11;
+    }
+    #Agregar {
+        font-size: 25px;
+        margin-top: 2px;
+        size: 200px;
+        color: #3498db;
+        /* border: none; */
+        cursor: pointer;
+        position: fixed;
+        bottom: 60px; /* Ajusta la posición vertical según tu preferencia */
+        right: 2px; /* Ajusta la posición horizontal según tu preferencia */
+        /* z-index: 111; Asegura que el botón esté por encima de otros elementos */
+        border-color: transparent;
+        background-color: transparent;
+    }
+    #Cargar {
+        font-size: 25px;
+        margin-top: 2px;
+        size: 200px;
+        color: rgb(0, 234, 35);
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+        position: fixed;
+        bottom: 150px; /* Ajusta la posición vertical según tu preferencia */
+        right: 5px; /* Ajusta la posición horizontal según tu preferencia */
+        /* z-index: 111; Asegura que el botón esté por encima de otros elementos */
+    }
+    .cambio-tema{
+        font-size: 25px;
+        margin-top: 1px;
+        color: rgb(255, 238, 0);
+        background-color: #0047cb;
+        border-radius: 5px;
+        cursor: pointer;
+        position: fixed;
+        top: 75px; /* Ajusta la posición vertical según tu preferencia */
+        left: 5px; /* Ajusta la posición horizontal según tu preferencia */
+        z-index: 1; /* Asegura que el botón esté por encima de otros elementos */
+    
+    }
+    #mensaje-no-resultados {
+        display: none;
+        font-size: 20px;
+        color: #c22a13;
+    }
+    .Carro {
+        width: 45px; /* Elige el ancho deseado */
+        height: 45px; /* Elige el alto deseado (debe ser igual al ancho) */
+        border-radius: 50%; /* Establece el radio del borde para hacerlo circular */
+        border: none;
+        font-size: 20px;
+        margin-top: 1px;
+        color: rgb(255, 255, 255);
+        background-color: #f90000;
+        cursor: pointer;
+        position: fixed;
+        top: 10%; /* Ajusta la posición vertical según tu preferencia */
+        right: 3%; /* Ajusta la posición horizontal según tu preferencia */
+        z-index: 1; /* Asegura que el botón esté por encima de otros elementos */
+        }
+    .Contador {
+        text-align: center;
+        justify-content: center;
+        padding: 2px;
+        width: 18px; /* Elige el ancho deseado */
+        height: 18px; /* Elige el alto deseado (debe ser igual al ancho) */
+        border-radius: 50%; /* Establece el radio del borde para hacerlo circular */
+        border: solid color(green);
+        font-size: 15px;
+        margin-top: 1px;
+        color: rgb(0, 5, 77);
+        background-color: #ff7300;
+        position: fixed;
+        top: 14%; /* Ajusta la posición vertical según tu preferencia */
+        right: 12%; /* Ajusta la posición horizontal según tu preferencia */
+        z-index: 1; /* Asegura que el botón esté por encima de otros elementos */
+        }
+    .modal1 {
+        display: none;
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background-color: rgba(0, 0, 0, 0.7); /* Fondo oscuro para bloquear el contenido detrás */
+        z-index: 1000; /* Asegura que el modal esté por encima de todo */
+        overflow-y: auto; /* Habilitar desbordamiento vertical cuando sea necesario */
+        }
+        
+    .modal-content1 {
+        text-align: center;
+        justify-content: center;
+        width: 70%;
+        margin-left: auto; /* Mueve el contenido al lado derecho */
+        margin-right: 20px;
+        margin-top: 80px;
+        padding: 10px;
+        background-color: rgb(255, 255, 255);
+        align-items: flex-start;
+        gap: 5px; /* Espaciado entre elementos */
+        }
+}

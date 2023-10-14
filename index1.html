@@ -1,0 +1,48 @@
+<?php
+session_start();
+
+// Si no se ha iniciado sesión, redirige a la página de inicio de sesión (login.php)
+if (!isset($_SESSION['mensaje_bienvenida'])) {
+    header('Location: Login/index.html');
+    exit;
+}
+?>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Sistema </title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="mostrar_inventario.js"></script>
+</head>
+<body>
+    <header>
+        <h1>Sistema de Ventas e Inventario</h1>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#">Inicio</a></li>
+            <li><a href="Ventas/ventas.html">Ventas</a></li>
+            <li><a href="Inventario/inventario.html">Inventario</a></li>
+            <li><a href="#">Clientes</a></li>
+            <li><a href="Reportes/reportes.html">Reportes</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section>
+            <!-- Contenido de la página index.html -->
+            <h2>Bienvenido</h2>
+            <p><?php echo $_SESSION['mensaje_bienvenida']; ?></p>
+            <a href="logout.php">Cerrar Sesión</a>
+        </section>
+    </main>
+
+    <footer>
+        <p>Derechos de Autor &copy; 2023 - Tu Librería</p>
+    </footer>
+</body>
+</html>
+

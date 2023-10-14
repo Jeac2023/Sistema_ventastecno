@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Iniciar Sesión</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="sweetalert2.min.js"></script>
+    <link rel="stylesheet" href="sweetalert2.min.css">
+</head>
+<body>
+    <div class="login-page">
+        <div class="form">
+            <img src="../Tecnophone.png" alt="tecnophone" width="200px">
+            <h1>Inicio de Sesión</h1>
+          <form class="login-form" method="POST" action="login.php">
+            <input type="text" name="username" placeholder="Nombre de Usuario" required/>
+            <input type="password" name="password" placeholder="Contraseña" required/>
+            <button type="submit">Ingresar</button>
+            <?php if (isset($error)): ?>
+                <p class="error"><?php echo $error; ?></p>
+            <?php endif; ?>
+            <p class="message">No estás registrado? <a href="registrar_usuario.php">Crear Cuenta</a></p>
+          </form>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,31 @@
+#contenedor-inventario {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+  }
+  
+  .producto {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin: 10px;
+    width: 200px;
+  }
+  
+  .imagen {
+    width: 100%;
+    height: auto;
+  }
+  
+  .nombre {
+    font-weight: bold;
+    margin-top: 10px;
+  }
+  
+  .precio {
+    margin-top: 5px;
+  }
+  
+  .stock {
+    margin-top: 5px;
+  }
+  
